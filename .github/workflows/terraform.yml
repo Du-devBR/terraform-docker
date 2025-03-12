@@ -48,5 +48,5 @@ jobs:
 
       # 7. Aplicar a infraestrutura (apenas no branch main)
       - name: Terraform Apply
-        if: github.ref == 'refs/heads/main'
+        if: github.ref == 'refs/heads/master'
         run: terraform apply -auto-approve

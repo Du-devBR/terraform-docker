@@ -3,10 +3,10 @@ name: Terraform Plan and Apply
 on:
   push:
     branches:
-      - main # Executa o pipeline apenas no branch main
+      - master # Executa o pipeline apenas no branch main
   pull_request:
     branches:
-      - main # Executa o pipeline em pull requests para o branch main
+      - master # Executa o pipeline em pull requests para o branch main
 
 jobs:
   terraform:

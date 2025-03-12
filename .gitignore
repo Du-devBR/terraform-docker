@@ -1,2 +1,16 @@
-/.terraform
-/terraform
+# Ignorar arquivos de estado do Terraform
+terraform.tfstate
+terraform.tfstate.backup
+*.tfstate
+*.tfstate.*
+
+# Ignorar pasta .terraform (onde o Terraform baixa os módulos e plugins)
+.terraform/
+.terraform.lock.hcl
+
+# Ignorar arquivos de planos do Terraform
+*.tfplan
+
+# Ignorar logs e arquivos temporários
+crash.log
+*.log

@@ -5,6 +5,15 @@ terraform {
       version = "~> 5.0"
     }
   }
+  backend "s3" {
+    bucket                      = "meu-bucket-terraform-state"
+    key                         = "eduardo/prd/terraform.tfstate"
+    region                      = "us-east-2"
+    endpoint                    = "http://localhost:4566" # Endpoint do LocalStack
+    skip_credentials_validation = true
+    skip_metadata_api_check     = true
+    force_path_style            = true
+  }
 }
 
 provider "aws" {
@@ -17,6 +26,7 @@ provider "aws" {
   # Define os endpoints do LocalStack para cada serviço AWS
   endpoints {
     ec2 = "http://localhost:4566"
+    s3  = "http://localhost:4566"
   }
 }
 

@@ -25,8 +25,13 @@ jobs:
       # 2. Configurar o LocalStack
       - name: Start LocalStack
         run: |
-          docker run -d --name localstack -p 4566:4566 localstack/localstack
+          docker run -d --name localstack -p 4566:4566 -e SERVICES=s3 localstack/localstack
           sleep 10  # Aguarda o LocalStack inicializar
+
+      # 3. Criar o bucket S3 no LocalStack
+      - name: Create S3 Bucket
+        run: |
+          aws --endpoint-url=http://localhost:4566 s3 mb s3://meu-bucket-terraform-state
 
       # 3. Configurar o Terraform
       - name: Set up Terraform

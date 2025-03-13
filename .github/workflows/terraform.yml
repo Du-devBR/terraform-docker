@@ -25,7 +25,7 @@ jobs:
       # 2. Configurar o LocalStack
       - name: Start LocalStack
         run: |
-          docker run -d --name localstack -p 4566:4566 -e SERVICES=s3 localstack/localstack
+          docker run -d --name localstack -p 4566:4566 -e SERVICES=s3, ec2 localstack/localstack
           sleep 10  # Aguarda o LocalStack inicializar
 
       # 3. Criar o bucket S3 no LocalStack

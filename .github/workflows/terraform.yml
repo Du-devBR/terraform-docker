@@ -31,7 +31,7 @@ jobs:
       # 3. Criar o bucket S3 no LocalStack
       - name: Create S3 Bucket
         run: |
-          aws --endpoint-url=http://localhost:4566 s3 mb s3://meu-bucket-terraform-state
+          aws --endpoint-url=http://localhost:4566 --region=us-east-1 s3 mb s3://meu-bucket-terraform-state
 
       # 3. Configurar o Terraform
       - name: Set up Terraform
